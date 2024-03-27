@@ -122,14 +122,17 @@ cran[c("ip_id", "package", "country")]
 ```
 5. Elige todas las variables entre `r_arch y country` 
 ```{r}
+start_col <- which(names(cran) == "r_arch")
+end_col <- which(names(cran) == "country")
 
+cran[, start_col:end_col]
 ```
 5. Puedes usar el signo (-) para no coger una columna determinada. Selecciona todas las columnas menos las que están entre `date y size` 
 ```{r}
+start_col <- which(names(cran) == "date")
+end_col <- which(names(cran) == "size")
 
-
-
-
+cran[, -start_col:-end_col]
 ```
 6. Elige aquellos registros en los que se haya descargado el paquete `plotly`, desde un sistema que ejecuta la versión de R 3.5.1
 ```{r}
